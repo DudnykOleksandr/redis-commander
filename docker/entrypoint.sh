@@ -338,6 +338,10 @@ if [ -n "$CLUSTER_NO_TLS_VALIDATION" ] && parse_boolean "$CLUSTER_NO_TLS_VALIDAT
     set -- "$@" "--cluster-no-tls-validation"
 fi
 
+if [ -n "$READ-ONLY" ] && parse_boolean "$READ-ONLY"; then
+    set -- "$@" "--read-only"
+fi
+
 if [ -n "$REPLACE_CONFIG_ENV" ]; then
     # special case for more complex docker setup with multiple connections
     # to unix sockets, sentinels and normal redis server not configurable
